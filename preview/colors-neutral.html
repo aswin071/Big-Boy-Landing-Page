@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #F9F8F4; padding: 20px; }
+.row { display: flex; gap: 8px; margin-bottom: 8px; }
+.swatch { flex: 1; border-radius: 8px; overflow: hidden; }
+.color { height: 56px; }
+.label { padding: 6px 10px; background: white; border: 1px solid #E8E6DF; border-top: none; border-radius: 0 0 8px 8px; }
+.label .name { font-size: 11px; font-weight: 600; color: #1A1A1A; }
+.label .hex { font-size: 10px; color: #999; font-family: monospace; }
+.section-title { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #C0392B; margin-bottom: 8px; margin-top: 4px; }
+</style>
+</head><body>
+<div class="section-title">Backgrounds</div>
+<div class="row">
+  <div class="swatch"><div class="color" style="background:#FFFFFF; border: 1px solid #E8E6DF;"></div><div class="label"><div class="name">Surface</div><div class="hex">#FFFFFF</div></div></div>
+  <div class="swatch"><div class="color" style="background:#F9F8F4; border: 1px solid #E8E6DF;"></div><div class="label"><div class="name">BG</div><div class="hex">#F9F8F4</div></div></div>
+  <div class="swatch"><div class="color" style="background:#F4F2EC; border: 1px solid #E8E6DF;"></div><div class="label"><div class="name">BG Warm</div><div class="hex">#F4F2EC</div></div></div>
+  <div class="swatch"><div class="color" style="background:#1A1A1A;"></div><div class="label"><div class="name">Carbon</div><div class="hex">#1A1A1A</div></div></div>
+  <div class="swatch"><div class="color" style="background:#111111;"></div><div class="label"><div class="name">BG Dark</div><div class="hex">#111111</div></div></div>
+</div>
+<div class="section-title">Text</div>
+<div class="row">
+  <div class="swatch"><div class="color" style="background:#1A1A1A;"></div><div class="label"><div class="name">Text</div><div class="hex">#1A1A1A</div></div></div>
+  <div class="swatch"><div class="color" style="background:#666666;"></div><div class="label"><div class="name">Secondary</div><div class="hex">#666666</div></div></div>
+  <div class="swatch"><div class="color" style="background:#999999;"></div><div class="label"><div class="name">Tertiary</div><div class="hex">#999999</div></div></div>
+  <div class="swatch"><div class="color" style="background:#E8E6DF; border: 1px solid #ccc;"></div><div class="label"><div class="name">Border</div><div class="hex">#E8E6DF</div></div></div>
+</div>
+</body></html>

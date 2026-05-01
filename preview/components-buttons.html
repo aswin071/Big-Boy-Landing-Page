@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #F9F8F4; padding: 24px; }
+.row { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+.section-title { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #C0392B; margin-bottom: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600; border-radius: 9999px; padding: 12px 24px; cursor: pointer; border: none; transition: all 0.2s; text-decoration: none; white-space: nowrap; }
+.btn-primary { background: #C0392B; color: white; box-shadow: 0 4px 24px rgba(192,57,43,0.30); }
+.btn-secondary { background: transparent; color: #1A1A1A; border: 1.5px solid #CCCBC4; }
+.btn-dark { background: #1A1A1A; color: white; }
+.btn-gold { background: linear-gradient(135deg, #C8A84B, #E4C97E); color: #1A1A1A; font-weight: 700; }
+.btn-ghost { background: transparent; color: #C0392B; border: 1.5px solid #C0392B; }
+.btn-sm { padding: 8px 18px; font-size: 13px; }
+.btn-lg { padding: 16px 36px; font-size: 17px; }
+.store-btn { background: #1A1A1A; color: white; border-radius: 10px; padding: 10px 18px; display: inline-flex; align-items: center; gap: 10px; font-family: 'DM Sans', sans-serif; border: none; cursor: pointer; }
+.store-btn .label-sm { font-size: 10px; color: rgba(255,255,255,0.6); display: block; }
+.store-btn .label-lg { font-size: 15px; font-weight: 600; display: block; line-height: 1; }
+</style>
+</head><body>
+<div class="section-title">Primary Actions</div>
+<div class="row">
+  <button class="btn btn-primary btn-sm">Join Waitlist</button>
+  <button class="btn btn-primary">Join Waitlist</button>
+  <button class="btn btn-primary btn-lg">Get Early Access</button>
+</div>
+<div class="section-title">Secondary / Ghost</div>
+<div class="row">
+  <button class="btn btn-secondary btn-sm">Learn More</button>
+  <button class="btn btn-secondary">Learn More</button>
+  <button class="btn btn-ghost">View Programs</button>
+  <button class="btn btn-dark">Download App</button>
+</div>
+<div class="section-title">Gold Accent</div>
+<div class="row">
+  <button class="btn btn-gold">1 Year Free Access</button>
+</div>
+<div class="section-title">App Store Buttons</div>
+<div class="row">
+  <button class="store-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    <div><span class="label-sm">Download on the</span><span class="label-lg">App Store</span></div>
+  </button>
+  <button class="store-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M3.18 23.76c.3.17.64.24.98.2l12.64-12.64L12.82 7.4 3.18 23.76zM20.44 10.72l-2.78-1.6-3.27 3.27 3.27 3.27 2.82-1.62c.8-.46.8-1.86-.04-2.32zM2.01 1.33C1.9 1.6 1.83 1.9 1.83 2.24v19.52c0 .34.07.64.18.9l.09.08 10.94-10.95v-.25L2.1 1.25l-.09.08zM12.82 16.6l3.98 3.98-12.64 7.28c-.37.22-.78.27-1.16.16l9.82-11.42z"/></svg>
+    <div><span class="label-sm">Get it on</span><span class="label-lg">Google Play</span></div>
+  </button>
+</div>
+</body></html>

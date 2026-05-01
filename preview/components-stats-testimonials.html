@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@400;600&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #F9F8F4; padding: 24px; display: flex; gap: 16px; flex-wrap: wrap; }
+.stat-card { background: white; border: 1px solid #E8E6DF; border-radius: 16px; padding: 24px; min-width: 140px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.stat-num { font-family: 'Barlow Condensed', sans-serif; font-size: 44px; font-weight: 900; color: #1A1A1A; line-height: 1; letter-spacing: -0.02em; }
+.stat-num span { color: #C0392B; }
+.stat-label { font-size: 13px; color: #666; margin-top: 6px; line-height: 1.4; }
+
+.testimonial { background: white; border: 1px solid #E8E6DF; border-radius: 16px; padding: 24px; max-width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.stars { color: #C8A84B; font-size: 14px; margin-bottom: 10px; letter-spacing: 2px; }
+.quote { font-size: 14px; color: #333; line-height: 1.6; font-style: italic; }
+.author { margin-top: 14px; display: flex; align-items: center; gap: 10px; }
+.avatar { width: 36px; height: 36px; border-radius: 50%; background: #C0392B; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: white; }
+.author-name { font-size: 13px; font-weight: 600; color: #1A1A1A; }
+.author-role { font-size: 11px; color: #999; }
+</style>
+</head><body>
+
+<div>
+<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#C0392B;margin-bottom:12px">Stats Counter Cards</div>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+  <div class="stat-card">
+    <div class="stat-num">10<span>k+</span></div>
+    <div class="stat-label">men using the app</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">4<span>.8</span></div>
+    <div class="stat-label">App Store rating</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">74<span>pts</span></div>
+    <div class="stat-label">avg score gain</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num">89<span>%</span></div>
+    <div class="stat-label">complete streak past Day 14</div>
+  </div>
+</div>
+</div>
+
+<div>
+<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:#C0392B;margin-bottom:12px">Testimonial Card</div>
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <div class="quote">"My score went from 44 to 79 in 6 weeks. The AI coach made me feel less alone about this."</div>
+  <div class="author">
+    <div class="avatar">A</div>
+    <div>
+      <div class="author-name">Arjun S.</div>
+      <div class="author-role">34 · Marketing Manager</div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body></html>

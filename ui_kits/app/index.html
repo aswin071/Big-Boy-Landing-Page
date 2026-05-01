@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BigBoy — Mobile App UI Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #111111;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+.phone-label {
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.3);
+}
+.phone-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-title {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.2);
+  pointer-events: none;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body>
+<div class="page-title">BigBoy · Mobile App UI Kit</div>
+
+<script type="text/babel" src="ios-frame.jsx"></script>
+<script type="text/babel" src="DailyTab.jsx"></script>
+<script type="text/babel" src="ProgramsTab.jsx"></script>
+<script type="text/babel" src="CoachTab.jsx"></script>
+
+<script type="text/babel">
+const TABS = [
+  {
+    id: 'daily', label: 'Daily',
+    icon: (active) => (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+        stroke={active ? '#C0392B' : 'rgba(255,255,255,0.35)'}
+        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'programs', label: 'Programs',
+    icon: (active) => (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+        stroke={active ? '#C0392B' : 'rgba(255,255,255,0.35)'}
+        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'coach', label: 'Coach',
+    icon: (active) => (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+        stroke={active ? '#C0392B' : 'rgba(255,255,255,0.35)'}
+        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    ),
+  },
+];
+
+function AppPhone({ initialTab }) {
+  const [activeTab, setActiveTab] = React.useState(initialTab);
+
+  const renderTab = () => {
+    switch (activeTab) {
+      case 'daily':    return <DailyTab />;
+      case 'programs': return <ProgramsTab />;
+      case 'coach':    return <CoachTab />;
+      default:         return <DailyTab />;
+    }
+  };
+
+  return (
+    <IOSDevice dark={true} width={375} height={812}>
+      {/* Content + tab bar stack */}
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%', paddingTop: 50 }}>
+        {/* Scrollable content */}
+        <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
+          {renderTab()}
+        </div>
+        {/* Tab bar */}
+        <div style={{
+          display: 'flex',
+          background: 'rgba(12,12,12,0.97)',
+          backdropFilter: 'blur(12px)',
+          borderTop: '1px solid rgba(255,255,255,0.08)',
+          padding: '8px 0 20px',
+          flexShrink: 0,
+        }}>
+          {TABS.map(tab => (
+            <button key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              style={{
+                flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
+                gap: 3, padding: '4px 0', cursor: 'pointer',
+                border: 'none', background: 'transparent', fontFamily: "'DM Sans', sans-serif",
+              }}>
+              {tab.icon(activeTab === tab.id)}
+              <span style={{
+                fontSize: 10, fontWeight: 600, letterSpacing: '0.02em',
+                color: activeTab === tab.id ? '#C0392B' : 'rgba(255,255,255,0.35)',
+              }}>
+                {tab.label}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </IOSDevice>
+  );
+}
+
+function AppShowcase() {
+  return (
+    <>
+      <div className="phone-wrap">
+        <div className="phone-label">Daily Tab</div>
+        <AppPhone initialTab="daily" />
+      </div>
+      <div className="phone-wrap">
+        <div className="phone-label">Programs Tab</div>
+        <AppPhone initialTab="programs" />
+      </div>
+      <div className="phone-wrap">
+        <div className="phone-label">AI Coach Tab</div>
+        <AppPhone initialTab="coach" />
+      </div>
+    </>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<AppShowcase />);
+</script>
+
+<div id="root"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #F9F8F4; padding: 20px; }
+.row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.bar { background: #C0392B; border-radius: 3px; height: 16px; flex-shrink: 0; }
+.token { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #C0392B; min-width: 80px; }
+.px { font-size: 11px; color: #999; min-width: 32px; }
+.usage { font-size: 11px; color: #666; }
+.section-title { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #C0392B; margin-bottom: 10px; }
+</style>
+</head><body>
+<div class="section-title">Spacing Scale</div>
+<div class="row"><div class="bar" style="width:4px"></div><div class="token">--space-1</div><div class="px">4px</div><div class="usage">Icon gap</div></div>
+<div class="row"><div class="bar" style="width:8px"></div><div class="token">--space-2</div><div class="px">8px</div><div class="usage">Tight inline gap</div></div>
+<div class="row"><div class="bar" style="width:12px"></div><div class="token">--space-3</div><div class="px">12px</div><div class="usage">Small component gap</div></div>
+<div class="row"><div class="bar" style="width:16px"></div><div class="token">--space-4</div><div class="px">16px</div><div class="usage">Card grid gap</div></div>
+<div class="row"><div class="bar" style="width:24px"></div><div class="token">--space-6</div><div class="px">24px</div><div class="usage">Card grid gap (lg)</div></div>
+<div class="row"><div class="bar" style="width:28px"></div><div class="token">--space-7</div><div class="px">28px</div><div class="usage">Card padding (sm)</div></div>
+<div class="row"><div class="bar" style="width:32px"></div><div class="token">--space-8</div><div class="px">32px</div><div class="usage">Container padding</div></div>
+<div class="row"><div class="bar" style="width:48px"></div><div class="token">--space-12</div><div class="px">48px</div><div class="usage">Card padding (lg)</div></div>
+<div class="row"><div class="bar" style="width:64px"></div><div class="token">--space-16</div><div class="px">64px</div><div class="usage">Section inner pad</div></div>
+<div class="row"><div class="bar" style="width:120px"></div><div class="token">--space-30</div><div class="px">120px</div><div class="usage">Section gap</div></div>
+</body></html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: #F9F8F4; padding: 24px; display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+.card { background: white; border: 1px solid #E8E6DF; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); min-width: 180px; }
+.card-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #C0392B; margin-bottom: 6px; }
+.score-ring { width: 80px; height: 80px; margin: 8px auto 12px; position: relative; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: #1A1A1A; transform: rotate(90deg) translateX(4px); }
+.pillar { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.pillar-name { font-size: 11px; color: #666; width: 64px; flex-shrink: 0; }
+.pillar-bar-bg { flex: 1; height: 5px; background: #F0EEE8; border-radius: 9999px; overflow: hidden; }
+.pillar-bar { height: 100%; border-radius: 9999px; }
+.pillar-val { font-size: 11px; font-weight: 600; color: #1A1A1A; width: 28px; text-align: right; }
+
+.tracker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tracker { border-radius: 10px; padding: 10px 12px; }
+.tracker-icon { font-size: 16px; margin-bottom: 4px; }
+.tracker-name { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.7); }
+.tracker-val { font-size: 14px; font-weight: 700; color: white; }
+</style>
+</head><body>
+
+<div class="card">
+  <div class="card-label">Performance Score</div>
+  <div class="score-ring">
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <circle cx="40" cy="40" r="32" fill="none" stroke="#F0EEE8" stroke-width="7"/>
+      <circle cx="40" cy="40" r="32" fill="none" stroke="#C0392B" stroke-width="7" stroke-linecap="round"
+        stroke-dasharray="201" stroke-dashoffset="54"/>
+    </svg>
+    <div class="score-text">74</div>
+  </div>
+  <div class="pillar"><div class="pillar-name">Physical</div><div class="pillar-bar-bg"><div class="pillar-bar" style="width:82%;background:#C0392B"></div></div><div class="pillar-val">82%</div></div>
+  <div class="pillar"><div class="pillar-name">Mental</div><div class="pillar-bar-bg"><div class="pillar-bar" style="width:68%;background:#9B59B6"></div></div><div class="pillar-val">68%</div></div>
+  <div class="pillar"><div class="pillar-name">Hormonal</div><div class="pillar-bar-bg"><div class="pillar-bar" style="width:71%;background:#E8A028"></div></div><div class="pillar-val">71%</div></div>
+  <div class="pillar"><div class="pillar-name">Nutrition</div><div class="pillar-bar-bg"><div class="pillar-bar" style="width:90%;background:#27AE60"></div></div><div class="pillar-val">90%</div></div>
+  <div class="pillar"><div class="pillar-name">Habits</div><div class="pillar-bar-bg"><div class="pillar-bar" style="width:85%;background:#2BB5D8"></div></div><div class="pillar-val">85%</div></div>
+</div>
+
+<div class="card" style="min-width:200px">
+  <div class="card-label">Health Trackers</div>
+  <div class="tracker-grid" style="margin-top:8px">
+    <div class="tracker" style="background:#5B7FE8"><div class="tracker-icon">🌙</div><div class="tracker-name">SLEEP</div><div class="tracker-val">6.8h</div></div>
+    <div class="tracker" style="background:#F0A928"><div class="tracker-icon">⚡</div><div class="tracker-name">ENERGY</div><div class="tracker-val">7/10</div></div>
+    <div class="tracker" style="background:#9B59B6"><div class="tracker-icon">🧠</div><div class="tracker-name">STRESS</div><div class="tracker-val">3/10</div></div>
+    <div class="tracker" style="background:#E84C8A"><div class="tracker-icon">❤️</div><div class="tracker-name">LIBIDO</div><div class="tracker-val">8/10</div></div>
+    <div class="tracker" style="background:#2BB5D8"><div class="tracker-icon">💧</div><div class="tracker-name">WATER</div><div class="tracker-val">2.1L</div></div>
+    <div class="tracker" style="background:#6C7A89"><div class="tracker-icon">🍷</div><div class="tracker-name">ALCOHOL</div><div class="tracker-val">0 units</div></div>
+  </div>
+</div>
+
+</body></html>
