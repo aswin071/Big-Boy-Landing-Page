@@ -36,6 +36,7 @@ export const metadata: Metadata = {
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
+import ClickSpark from "@/components/ClickSpark";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <SmoothScroll>
+          <ClickSpark />
           {children}
         </SmoothScroll>
       </body>
