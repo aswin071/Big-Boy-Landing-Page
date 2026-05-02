@@ -21,19 +21,20 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden min-h-[900px] pb-20">
+    <section className="relative overflow-hidden min-h-[750px] pb-20">
       {/* Layer 0a: Solid dark warm base — fills the area outside the photo */}
       <div
         className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          background:
-            "linear-gradient(90deg, #7c2c0c 0%, #5b1a08 32%, #2f0d0a 66%, #140507 100%)",
+          background: "linear-gradient(90deg, #7c2c0c 0%, #5b1a08 32%, #2f0d0a 66%, #140507 100%)",
+          maskImage: "linear-gradient(to top, transparent 0%, black 15%)",
+          WebkitMaskImage: "linear-gradient(to top, transparent 0%, black 15%)",
         }}
       />
       {/* Layer 0b: Background photo — natural size, occupies right ~70%, smaller proportion */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         <Image
-          src="/images/hero_section.png"
+          src="/images/hero-img.avif"
           alt="Hero background"
           fill
           priority
@@ -42,19 +43,21 @@ export default function HeroSection() {
           draggable={false}
           style={{
             objectFit: "cover",
-            objectPosition: "50% 50%",
+            objectPosition: "20% 60%",
             filter: "brightness(0.78) contrast(1.04) saturate(0.7) blur(1.4px)",
-            transform: "scale(1.5)",
+            transform: "scale(1.15)",
             transformOrigin: "center center",
             maskImage:
-              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.34) 18%, rgba(0,0,0,0.84) 40%, #000 63%)",
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.34) 18%, rgba(0,0,0,0.84) 40%, #000 63%), linear-gradient(to top, transparent 0%, black 20%)",
             WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.34) 18%, rgba(0,0,0,0.84) 40%, #000 63%)",
+              "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.34) 18%, rgba(0,0,0,0.84) 40%, #000 63%), linear-gradient(to top, transparent 0%, black 20%)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
           }}
         />
       </div>
 
-      {/* Layer 1: Strong warm orange wash on the left — left half tinted, right half clear so the face stays vivid */}
+      {/* Layer 1: Strong warm orange wash on the left */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
@@ -62,7 +65,7 @@ export default function HeroSection() {
             "linear-gradient(to right, rgba(174,66,19,0.72) 0%, rgba(140,45,12,0.5) 28%, rgba(80,22,10,0.22) 50%, rgba(0,0,0,0.05) 72%, rgba(0,0,0,0.28) 100%)",
         }}
       />
-      {/* Layer 1b: Warm radial glow centered on the upper-left — pushes the orange brighter near the headline */}
+      {/* Layer 1b: Warm radial glow centered on the upper-left */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
@@ -70,7 +73,7 @@ export default function HeroSection() {
             "radial-gradient(ellipse 58% 76% at 22% 50%, rgba(201,84,26,0.48) 0%, rgba(139,37,0,0) 64%)",
         }}
       />
-      {/* Layer 1c: Light top + bottom shading only — keeps the face fully visible */}
+      {/* Layer 1c: Light top + bottom shading only */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
         style={{
@@ -79,41 +82,10 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Layer 2: Large white base with curved top edge */}
-      {/* <div
-        className="absolute z-[2] pointer-events-none"
-        style={{
-          bottom: "-250px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "245%",
-          height: "420px",
-          background:
-            "radial-gradient(ellipse at 50% 18%, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.96) 28%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,1) 70%)",
-          borderRadius: "50%",
-          filter: "blur(2.5px)",
-        }}
-      /> */}
-      <div
-        className="absolute z-[2] pointer-events-none"
-        style={{
-          bottom: "-110px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "170%",
-          height: "180px",
-          background:
-            "radial-gradient(ellipse at 50% 35%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.38) 45%, rgba(255,255,255,0) 78%)",
-          borderRadius: "50%",
-          filter: "blur(16px)",
-        }}
-      />
-
-
       {/* Layer 4: Hero text */}
       <div
         className="relative z-[4] text-center px-6 max-w-[1100px] mx-auto"
-        style={{ paddingTop: "16vh" }}
+        style={{ paddingTop: "12vh" }}
       >
         <div className="inline-flex items-center gap-2 bg-black/55 backdrop-blur-md border border-white/10 rounded-full pl-1.5 pr-5 py-1.5 mb-7 mt-16 md:mt-24">
           <span className="bg-black text-white text-[12px] font-bold rounded-full px-3 py-1">
@@ -125,12 +97,12 @@ export default function HeroSection() {
         </div>
 
         <h1
-          className="font-display text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.6)]"
+          className="font-display text-white drop-shadow-[0_4px_32px_rgba(0,0,0,0.5)]"
           style={{
-            fontSize: "clamp(40px, 5.5vw, 76px)",
+            fontSize: "clamp(44px, 5.8vw, 84px)",
             fontWeight: 800,
-            lineHeight: 1.05,
-            letterSpacing: "-0.035em",
+            lineHeight: 0.95,
+            letterSpacing: "-0.05em",
           }}
         >
           Build habits that
@@ -163,7 +135,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Layer 3: Three floating glassmorphism cards — in flow, 48px below CTAs, overflow bottom */}
+      {/* Layer 3: Three floating glassmorphism cards */}
       <div
         className="relative z-[3] flex items-start justify-center gap-3 sm:gap-5 lg:gap-7 mt-12"
         style={{
@@ -173,7 +145,7 @@ export default function HeroSection() {
           transition: "transform 120ms linear, opacity 120ms linear",
         }}
       >
-        {/* LEFT card — small, rotated -6deg */}
+        {/* LEFT card */}
         <div
           className="hidden sm:flex flex-col items-center justify-center gap-3 w-[230px] h-[150px] lg:w-[255px] lg:h-[165px] p-5 lg:p-6 mt-16"
           style={{
@@ -201,7 +173,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* CENTER card — actual iPhone-style device with thick bezel */}
+        {/* CENTER card — iPhone-style device */}
         <div
           className="relative w-[320px] lg:w-[360px] mt-16"
           style={{
@@ -214,7 +186,7 @@ export default function HeroSection() {
               "0 80px 160px rgba(0,0,0,0.75), 0 30px 60px rgba(0,0,0,0.55), inset 0 0 0 2px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.08)",
           }}
         >
-          {/* Dynamic island / notch */}
+          {/* Dynamic island */}
           <div className="absolute top-3 left-1/2 -translate-x-1/2 w-[80px] h-[22px] bg-black rounded-full z-10" />
           {/* Inner screen */}
           <div
@@ -272,7 +244,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* RIGHT card — small, rotated +6deg */}
+        {/* RIGHT card */}
         <div
           className="hidden sm:flex flex-col items-center justify-center gap-3 w-[230px] h-[150px] lg:w-[255px] lg:h-[165px] p-5 lg:p-6 mt-36"
           style={{
@@ -318,21 +290,67 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Layer 3b: Single giant circle, only a small arc overlays the app screens */}
+      {/* Layer 5: Bokeh background blobs that bleed into the white curve — matches the image */}
+      {/* Left warm orange bokeh orb */}
       <div
         className="absolute z-[5] pointer-events-none"
         style={{
-          bottom: `${-530 + revealProgress * 16}px`,
-          left: "43%",
-          transform: `translateX(-50%) scale(${1 + revealProgress * 0.015})`,
-          width: "320%",
-          height: "780px",
-          background:
-            "radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.38) 28%, rgba(255,255,255,0.22) 46%, rgba(255,255,255,0.1) 62%, rgba(255,255,255,0.03) 76%, rgba(255,255,255,0) 88%)",
-          borderRadius: "50%",
+          bottom: "-60px",
+          left: "-10%",
+          width: "55%",
+          height: "420px",
+          background: "radial-gradient(ellipse at 40% 60%, rgba(200, 90, 20, 0.75) 0%, rgba(180, 70, 10, 0.45) 35%, transparent 70%)",
+          filter: "blur(72px)",
+        }}
+      />
+      {/* Right warm orange/brown bokeh orb */}
+      <div
+        className="absolute z-[5] pointer-events-none"
+        style={{
+          bottom: "-60px",
+          right: "-10%",
+          width: "55%",
+          height: "420px",
+          background: "radial-gradient(ellipse at 60% 60%, rgba(160, 55, 10, 0.75) 0%, rgba(140, 45, 5, 0.45) 35%, transparent 70%)",
+          filter: "blur(72px)",
+        }}
+      />
+      {/* Center dark gap between orbs — creates the depth in the image */}
+      <div
+        className="absolute z-[5] pointer-events-none"
+        style={{
+          bottom: "-40px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "40%",
+          height: "300px",
+          background: "radial-gradient(ellipse at 50% 80%, rgba(10, 4, 2, 0.55) 0%, transparent 65%)",
           filter: "blur(48px)",
-          opacity: 0.75 + revealProgress * 0.18,
-          transition: "transform 140ms linear, opacity 140ms linear, bottom 140ms linear",
+        }}
+      />
+
+      {/* Layer 5b: Clean SVG Curve at the bottom — sits above the bokeh blobs */}
+      <div className="absolute bottom-0 left-0 w-full leading-[0] z-[6] pointer-events-none">
+        <svg
+          viewBox="0 0 1440 320"
+          className="w-full h-auto translate-y-[1px]"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0 320L1440 320L1440 64C1440 64 1162 256 720 256C278 256 0 64 0 64L0 320Z"
+            fill="white"
+          />
+        </svg>
+      </div>
+
+      {/* Layer 6: Soft white glow ABOVE the curve — blends the transition */}
+      <div
+        className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[480%] h-[400px] z-[10] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0) 70%)",
+          filter: "blur(90px)",
         }}
       />
     </section>

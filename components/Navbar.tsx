@@ -25,7 +25,7 @@ export default function Navbar() {
       <motion.a
         href="#"
         style={{ x: leftSpreadX, WebkitBackdropFilter: "blur(20px)" }}
-        className="absolute right-1/2 flex items-center gap-2.5 bg-white/95 backdrop-blur-xl border border-white/60 rounded-full pl-2 pr-5 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.18)] transition-shadow"
+        className="absolute right-1/2 flex items-center gap-2.5 bg-white/95 backdrop-blur-xl border border-white/60 rounded-xl pl-2 pr-5 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.18)] transition-shadow"
       >
         <span className="w-9 h-9 rounded-full bg-gradient-to-br from-[#E8554A] via-[#C0392B] to-[#9A7D2F] flex items-center justify-center text-[13px] text-white font-display font-black">
           ✦
@@ -37,7 +37,7 @@ export default function Navbar() {
 
       {/* Center links pill */}
       <ul
-        className="hidden md:flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white/60 rounded-[24px] px-2 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.12)] list-none"
+        className="hidden md:flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white/60 rounded-xl px-2 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.12)] list-none"
         style={{ WebkitBackdropFilter: "blur(20px)" }}
       >
         {NAV_LINKS.map((l, idx) => (
@@ -57,7 +57,7 @@ export default function Navbar() {
       {/* Right store pill — single pill containing two black tile icons */}
       <motion.div
         style={{ x: rightSpreadX, WebkitBackdropFilter: "blur(20px)" }}
-        className="absolute left-1/2 flex items-center gap-1.5 bg-white/95 backdrop-blur-xl border border-white/60 rounded-full p-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
+        className="absolute left-1/2 flex items-center gap-1.5 bg-white/95 backdrop-blur-xl border border-white/60 rounded-xl p-1.5 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
       >
         <a
           href="#"
