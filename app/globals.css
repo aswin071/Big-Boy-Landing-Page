@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-red: #C0392B;
+  --color-red-dark: #96281B;
+  --color-red-light: #E8554A;
+  --color-gold: #C8A84B;
+  --color-gold-light: #E4C97E;
+  --color-bg: #F1EFEB;
+  --color-surface: #FFFFFF;
+  --color-text: #1A1A1A;
+  --color-text-2: #666666;
+  --color-text-3: #999999;
+  --color-border: #E2E0D9;
+
+  --font-display: "Barlow Condensed", "Impact", sans-serif;
+  --font-body: var(--font-dm-sans), "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar for horizontal program scroller */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* iPhone frame primitives */
+.iphone-frame {
+  position: relative;
+  width: 280px;
+  margin: 0 auto;
+  background: #0a0a0a;
+  border-radius: 46px;
+  padding: 14px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 0 0 2px #1a1a1a,
+    0 32px 80px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.iphone-screen {
+  background: #0d0d0d;
+  border-radius: 34px;
+  overflow: hidden;
+  min-height: 480px;
+}
+.iphone-notch {
+  width: 110px;
+  height: 28px;
+  background: #000;
+  border-radius: 20px;
+  margin: 0 auto 10px;
+  position: relative;
+  z-index: 10;
+}
+.iphone-camera {
+  position: absolute;
+  right: 26px;
+  top: 20px;
+  width: 10px;
+  height: 10px;
+  background: #111;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+}
+.iphone-side-btn {
+  position: absolute;
+  left: -3px;
+  top: 90px;
+  width: 3px;
+  height: 28px;
+  background: #2a2a2a;
+  border-radius: 2px 0 0 2px;
+}
+.iphone-side-btn.vol {
+  top: 130px;
+  height: 22px;
+}
+.iphone-side-btn.vol2 {
+  top: 158px;
+  height: 22px;
+}
+.iphone-side-btn.power {
+  right: -3px;
+  top: 110px;
+  left: auto;
+  width: 3px;
+  height: 36px;
+  border-radius: 0 2px 2px 0;
+}
+.iphone-home {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0a0a;
+}
+.iphone-home-bar {
+  width: 120px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+}
+
+/* Eyebrow tag */
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-red);
+}
+
+/* Editorial display headline */
+.display-h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+}
