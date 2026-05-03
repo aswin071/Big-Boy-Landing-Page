@@ -1,7 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import MarqueeStrip from "@/components/MarqueeStrip";
-import HowItWorks from "@/components/HowItWorks";
+import VisualRoutine from "@/components/VisualRoutine";
+import Achievements from "@/components/Achievements";
+import AISuggestions from "@/components/AISuggestions";
+import UserStories from "@/components/UserStories";
 import FeatureBento from "@/components/FeatureBento";
 import ProgramsSection from "@/components/ProgramsSection";
 import Testimonials from "@/components/Testimonials";
@@ -18,14 +21,19 @@ export default function HomePage() {
       <Navbar />
       <HeroSection />
       <MarqueeStrip />
-      <HowItWorks />
-      <FeatureBento />
-      <ProgramsSection />
-      <Testimonials />
-      <StatsCounter />
-      <AICoachSection />
+      <VisualRoutine />
+      <Achievements />
+      <AISuggestions />
+      <UserStories />
+      <FAQSection />  
+
+      
+      {/* <FeatureBento /> */}
+      {/* <ProgramsSection /> */}
+      {/* <Testimonials /> */}
+      {/* <StatsCounter /> */}
+      {/* <AICoachSection /> */}
       <WaitlistSection />
-      <FAQSection />
       <FinalCTA />
       <Footer />
     </main>
