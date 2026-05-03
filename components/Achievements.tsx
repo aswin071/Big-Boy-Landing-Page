@@ -25,16 +25,16 @@ const ACHIEVEMENTS = [
     name: "Maya",
     role: "Student",
     achievement: "21-day streak",
-    sub: "Completed 21-day streak using Habitline",
-    image: "https://images.unsplash.com/photo-1554062975-c3455521f1ce?q=80&w=600",
+    sub: "Completed 21-day streak using BigBoy",
+    image: "/images/maya.png",
     color: "from-red-500/80"
   },
   {
-    name: "Daniel Gray",
+    name: "John",
     role: "Founder",
     achievement: "87%",
     sub: "Improved cycling performance",
-    image: "https://images.unsplash.com/photo-1471506480208-899463c5c83f?q=80&w=600",
+    image: "/images/john.png",
     color: "from-blue-500/80"
   }
 ];
@@ -44,46 +44,12 @@ export default function Achievements() {
     <section className="py-24 bg-white">
       <div className="max-w-container mx-auto px-6">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div className="max-w-[600px]">
-            <FadeUp>
-              <h2 className="font-display font-black text-ink leading-[1.05] tracking-tight" style={{ fontSize: "clamp(32px, 5vw, 64px)" }}>
-                What users are achieving with Habitline
-              </h2>
-            </FadeUp>
-          </div>
-
-          <div className="flex flex-col items-start md:items-end gap-3">
-            <FadeUp delay={0.1}>
-              <div className="flex items-center">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-gray-200">
-                      <Image 
-                        src={`https://i.pravatar.cc/100?img=${i + 10}`} 
-                        alt="User" 
-                        width={40} 
-                        height={40} 
-                      />
-                    </div>
-                  ))}
-                  <div className="w-10 h-10 rounded-full border-2 border-white bg-black flex items-center justify-center text-[11px] font-bold text-white">
-                    +5k
-                  </div>
-                </div>
-              </div>
-            </FadeUp>
-            <FadeUp delay={0.2}>
-              <div className="flex flex-col items-start md:items-end">
-                <div className="flex gap-0.5 mb-1">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <span key={s} className="text-orange-400 text-sm">★</span>
-                  ))}
-                </div>
-                <span className="text-[13px] font-bold text-ink/60">Trusted worldwide</span>
-              </div>
-            </FadeUp>
-          </div>
+        <div className="mb-16">
+          <FadeUp>
+            <h2 className="font-display font-black text-ink leading-[1.05] tracking-tight max-w-[600px]" style={{ fontSize: "clamp(32px, 5vw, 64px)" }}>
+              What users are achieving with BigBoy
+            </h2>
+          </FadeUp>
         </div>
 
         {/* Cards Grid */}

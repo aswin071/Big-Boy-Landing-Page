@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { DM_Sans, Barlow_Condensed, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -33,10 +34,16 @@ export const metadata: Metadata = {
   title: "BigBoy — Better Performance. Better Intimacy.",
   description:
     "Science-backed daily habits for men. Takes 15 minutes a day. Built around your data — not generic advice. 100% private.",
+  icons: {
+    icon: "/images/logo-dark.jpg",
+    apple: "/images/logo-dark.jpg",
+  },
 };
 
 import SmoothScroll from "@/components/SmoothScroll";
 import ClickSpark from "@/components/ClickSpark";
+import { StoreModalProvider } from "@/components/StoreModal";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -59,10 +66,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        <SmoothScroll>
-          <ClickSpark />
-          {children}
-        </SmoothScroll>
+        <StoreModalProvider>
+          <SmoothScroll>
+            <ClickSpark />
+            {children}
+          </SmoothScroll>
+        </StoreModalProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import FadeUp from "./FadeUp";
 import IPhoneMockup from "./IPhoneMockup";
 import { motion } from "framer-motion";
+import { useStoreModal } from "./StoreModal";
 
 const TAGS = ["#Founders", "#Students", "#Busy parents", "#Remote teams"];
 
@@ -17,7 +18,7 @@ const CARDS = [
   { type: "icon", label: "Stretch for 5 minutes", icon: "🧘", color: "#EDE9FE", x: 260, y: -60, rotate: 5 },
   { type: "image", src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=300", x: 250, y: 120, rotate: -4 },
   { type: "icon", label: "Meditate", icon: "✨", color: "#F3E8FF", x: 0, y: 0, rotate: 2 },
-  { type: "image", src: "https://images.unsplash.com/photo-1518314916301-739da369400f?q=80&w=300", x: 0, y: 0, rotate: -3 },
+  { type: "image", src: "https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=300", x: 0, y: 0, rotate: -3 },
 ];
 
 function RoutineCard({ card }: { card: any }) {
@@ -49,8 +50,10 @@ function RoutineCard({ card }: { card: any }) {
 }
 
 export default function VisualRoutine() {
+  const { openStoreModal } = useStoreModal();
+
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section id="how-it-works" className="py-24 bg-white overflow-hidden">
       <div className="max-w-container mx-auto px-6">
         <div className="text-center mb-16">
           <FadeUp>
@@ -123,14 +126,6 @@ export default function VisualRoutine() {
         {/* Footer Rating and Text */}
         <div className="text-center max-w-[600px] mx-auto">
           <FadeUp delay={0.4}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FFF8E7] border border-[#FBE5A2] rounded-full mb-6">
-              <span className="text-[12px]">⭐</span>
-              <span className="text-[12px] font-bold text-[#856404]">4.7 rating</span>
-              <span className="text-[12px] text-[#856404]/60">(based on 125 reviews)</span>
-            </div>
-          </FadeUp>
-
-          <FadeUp delay={0.5}>
             <p className="text-[16px] text-muted leading-[1.6] mb-10">
               Stay consistent with a system that fits into real life. Simple cards, clear routines, and gentle nudges help you build progress that lasts.
             </p>
@@ -138,11 +133,11 @@ export default function VisualRoutine() {
 
           <FadeUp delay={0.6}>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="bg-black text-white px-8 py-3.5 rounded-full font-bold text-[14px] flex items-center gap-2.5 shadow-xl hover:bg-black/80 transition-all">
+              <button onClick={openStoreModal} className="bg-black text-white px-8 py-3.5 rounded-full font-bold text-[14px] flex items-center gap-2.5 shadow-xl hover:bg-black/80 transition-all">
                 <AppleIcon />
                 Download for iPhone
               </button>
-              <button className="bg-[#F5F5F7] text-ink px-8 py-3.5 rounded-full font-bold text-[14px] border border-border flex items-center gap-2.5 hover:bg-black/5 transition-all">
+              <button onClick={openStoreModal} className="bg-[#F5F5F7] text-ink px-8 py-3.5 rounded-full font-bold text-[14px] border border-border flex items-center gap-2.5 hover:bg-black/5 transition-all">
                 <PlayIcon />
                 Get it on Android
               </button>

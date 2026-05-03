@@ -3,8 +3,11 @@
 import Image from "next/image";
 import FadeUp from "./FadeUp";
 import { motion } from "framer-motion";
+import { useStoreModal } from "./StoreModal";
 
 export default function FinalCTA() {
+  const { openStoreModal } = useStoreModal();
+
   return (
     <section className="relative py-32 overflow-hidden bg-white">
       {/* Background Sky & Clouds */}
@@ -19,7 +22,7 @@ export default function FinalCTA() {
       </div>
 
       <div className="max-w-container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_1.2fr] items-center gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-12 lg:gap-20">
           
           {/* Left Content */}
           <div className="text-left">
@@ -32,13 +35,13 @@ export default function FinalCTA() {
               </p>
               
               <div className="flex flex-col gap-4">
-                <button className="flex items-center justify-center gap-3 bg-black text-white px-10 py-4 rounded-full font-bold text-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:bg-black/80 transition-all w-full sm:w-fit">
+                <button onClick={openStoreModal} className="flex items-center justify-center gap-3 bg-black text-white px-10 py-4 rounded-full font-bold text-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:bg-black/80 transition-all w-full sm:w-fit">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                     <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                   </svg>
                   Download for iPhone
                 </button>
-                <button className="flex items-center justify-center gap-3 bg-[#E5E5E5] text-ink px-10 py-4 rounded-full font-bold text-[15px] hover:bg-[#D5D5D5] transition-all w-full sm:w-fit">
+                <button onClick={openStoreModal} className="flex items-center justify-center gap-3 bg-[#E5E5E5] text-ink px-10 py-4 rounded-full font-bold text-[15px] hover:bg-[#D5D5D5] transition-all w-full sm:w-fit">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.523 15.3414C17.0602 15.3414 16.691 15.7107 16.691 16.1735C16.691 16.6362 17.0602 17.0055 17.523 17.0055C17.9857 17.0055 18.355 16.6362 18.355 16.1735C18.355 15.7107 17.9857 15.3414 17.523 15.3414ZM6.47702 15.3414C6.01427 15.3414 5.645 15.7107 5.645 16.1735C5.645 16.6362 6.01427 17.0055 6.47702 17.0055C6.93976 17.0055 7.30904 16.6362 7.30904 16.1735C7.30904 15.7107 6.93976 15.3414 6.47702 15.3414ZM17.8559 11.1913L19.2201 8.82813C19.331 8.63613 19.2654 8.39088 19.0734 8.27988C18.8814 8.16888 18.6361 8.23463 18.5251 8.42663L17.1354 10.8335C15.5891 10.1268 13.8569 9.7285 12 9.7285C10.1431 9.7285 8.41088 10.1268 6.86463 10.8335L5.47488 8.42663C5.36388 8.23463 5.11863 8.16888 4.92663 8.27988C4.73463 8.39088 4.669 8.63613 4.77988 8.82813L6.14413 11.1913C3.34413 12.7118 1.45 15.6178 1.45 18.9664H22.55C22.55 15.6178 20.6559 12.7118 17.8559 11.1913Z" />
                   </svg>
@@ -65,32 +68,6 @@ export default function FinalCTA() {
                   className="object-cover"
                 />
               {/* </motion.div> */}
-            </FadeUp>
-          </div>
-
-          {/* Right QR */}
-          <div className="flex flex-col items-center lg:items-end text-center lg:text-right">
-            <FadeUp delay={0.4}>
-              <h3 className="text-[24px] font-black text-ink mb-10 leading-tight max-w-[240px]">
-                Scan the QR code to download the app
-              </h3>
-              
-              <div className="bg-white p-6 rounded-[32px] border border-border shadow-xl mb-10 w-fit mx-auto lg:mr-0">
-                <Image 
-                  src="/images/qr.svg" 
-                  alt="Download QR" 
-                  width={160} 
-                  height={160} 
-                  className="w-40 h-40"
-                />
-              </div>
-
-              <div className="inline-flex items-center gap-1.5 text-[12px] font-bold text-[#27AE60] bg-[#E9F7EF] border border-[#27AE60]/20 rounded-full px-4 py-2">
-                🔒 100% private
-              </div>
-              <p className="text-[13px] text-muted font-medium mt-4">
-                No credit card. Free to start.
-              </p>
             </FadeUp>
           </div>
 

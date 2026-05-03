@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   const [revealProgress, setRevealProgress] = useState(0);
@@ -87,17 +88,8 @@ export default function HeroSection() {
         className="relative z-[4] text-center px-6 max-w-[1100px] mx-auto"
         style={{ paddingTop: "12vh" }}
       >
-        <div className="inline-flex items-center gap-2 bg-black/55 backdrop-blur-md border border-white/10 rounded-full pl-1.5 pr-5 py-1.5 mb-7 mt-16 md:mt-24">
-          <span className="bg-black text-white text-[12px] font-bold rounded-full px-3 py-1">
-            New
-          </span>
-          <span className="text-[13px] text-white/85 font-medium">
-            A calmer way to build habits
-          </span>
-        </div>
-
         <h1
-          className="font-display text-white drop-shadow-[0_4px_32px_rgba(0,0,0,0.5)]"
+          className="font-display text-white drop-shadow-[0_4px_32px_rgba(0,0,0,0.5)] mt-16 md:mt-24"
           style={{
             fontSize: "clamp(44px, 5.8vw, 84px)",
             fontWeight: 800,
@@ -105,33 +97,22 @@ export default function HeroSection() {
             letterSpacing: "-0.05em",
           }}
         >
-          Build habits that
+          Better Performance.
           <br />
-          actually stick
+          Better Intimacy.
         </h1>
 
         <p
-          className="text-white/75 max-w-[440px] mx-auto mt-4 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
-          style={{ fontSize: "clamp(14px, 1.1vw, 16px)", lineHeight: 1.55 }}
+          className="text-white/80 max-w-[500px] mx-auto mt-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
+          style={{ fontSize: "clamp(15px, 1.15vw, 17px)", lineHeight: 1.65 }}
         >
-          You see the right habits at the right time so your day never feels crowded.
+          Big Boy app provides structured programs from world-renowned sexual wellness coaches.
+          <br />
+          Science-backed routines. Start seeing changes in 9 days.
         </p>
 
-        <div className="flex gap-3 justify-center flex-wrap mt-8">
-          <button className="bg-white text-black rounded-full px-8 py-4 font-semibold text-[15px] inline-flex items-center gap-2 shadow-[0_8px_28px_rgba(0,0,0,0.32)] transition hover:-translate-y-0.5">
-            Start tracking for free
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </button>
-          <button className="bg-white/10 backdrop-blur-sm text-white rounded-full px-8 py-4 font-semibold text-[15px] border border-white/20 inline-flex items-center gap-2.5 transition hover:-translate-y-0.5 hover:bg-white/[0.18]">
-            <span className="w-6 h-6 rounded-full border-2 border-white/85 flex items-center justify-center">
-              <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-            Watch demo
-          </button>
+        <div className="flex justify-center mt-8">
+          <JoinWaitlistButton />
         </div>
       </div>
 
@@ -329,6 +310,47 @@ export default function HeroSection() {
         }}
       />
 
+      {/* Smoke wisps — float above the bokeh, below the SVG curve */}
+      <div className="absolute z-[5] pointer-events-none" style={{ bottom: "0", left: 0, right: 0, height: "340px" }}>
+        {/* Wide central smoke drift */}
+        <div style={{
+          position: "absolute", bottom: "40px", left: "50%", transform: "translateX(-50%)",
+          width: "110%", height: "260px",
+          background: "radial-gradient(ellipse at 50% 90%, rgba(255,245,235,0.55) 0%, rgba(230,180,140,0.28) 40%, transparent 72%)",
+          filter: "blur(48px)",
+        }} />
+        {/* Left wisp */}
+        <div style={{
+          position: "absolute", bottom: "60px", left: "4%",
+          width: "50%", height: "200px",
+          background: "radial-gradient(ellipse at 30% 100%, rgba(255,240,220,0.58) 0%, rgba(200,120,60,0.25) 45%, transparent 72%)",
+          filter: "blur(44px)",
+          transform: "rotate(-6deg)",
+        }} />
+        {/* Right wisp */}
+        <div style={{
+          position: "absolute", bottom: "60px", right: "4%",
+          width: "50%", height: "200px",
+          background: "radial-gradient(ellipse at 70% 100%, rgba(255,240,220,0.58) 0%, rgba(200,120,60,0.25) 45%, transparent 72%)",
+          filter: "blur(44px)",
+          transform: "rotate(6deg)",
+        }} />
+        {/* Top depth wisp */}
+        <div style={{
+          position: "absolute", bottom: "160px", left: "25%",
+          width: "50%", height: "120px",
+          background: "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.32) 0%, transparent 65%)",
+          filter: "blur(36px)",
+        }} />
+        {/* Dense base layer */}
+        <div style={{
+          position: "absolute", bottom: "0", left: "50%", transform: "translateX(-50%)",
+          width: "120%", height: "140px",
+          background: "radial-gradient(ellipse at 50% 100%, rgba(255,250,245,0.65) 0%, rgba(240,200,160,0.35) 45%, transparent 70%)",
+          filter: "blur(32px)",
+        }} />
+      </div>
+
       {/* Layer 5b: Clean SVG Curve at the bottom — sits above the bokeh blobs */}
       <div className="absolute bottom-0 left-0 w-full leading-[0] z-[6] pointer-events-none">
         <svg
@@ -405,6 +427,55 @@ function CircleIcon({ children }: { children: React.ReactNode }) {
     <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-md">
       {children}
     </div>
+  );
+}
+
+function JoinWaitlistButton() {
+  const [hovered, setHovered] = useState(false);
+
+  function scrollToWaitlist() {
+    const el = document.getElementById("waitlist");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  return (
+    <motion.button
+      onClick={scrollToWaitlist}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      whileHover={{
+        scale: 1.06,
+        boxShadow: "0 0 32px rgba(255,255,255,0.45), 0 12px 40px rgba(0,0,0,0.28)",
+      }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+      className="bg-white text-black rounded-full px-10 py-4 font-semibold text-[15px] inline-flex items-center gap-2 overflow-hidden cursor-pointer"
+    >
+      <span className="relative overflow-hidden h-[1.3em] flex items-center">
+        <motion.span
+          className="inline-block"
+          animate={{ y: hovered ? "-110%" : "0%" }}
+          transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Join Waitlist
+        </motion.span>
+        <motion.span
+          className="absolute inset-0 inline-flex items-center justify-center"
+          animate={{ y: hovered ? "0%" : "110%" }}
+          transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Join Waitlist
+        </motion.span>
+      </span>
+      <motion.svg
+        animate={{ x: hovered ? 4 : 0 }}
+        transition={{ duration: 0.22 }}
+        width="14" height="14" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+      >
+        <path d="M5 12h14M13 5l7 7-7 7" />
+      </motion.svg>
+    </motion.button>
   );
 }
 

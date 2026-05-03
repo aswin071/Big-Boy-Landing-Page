@@ -6,6 +6,8 @@ import FadeUp from "./FadeUp";
 export default function WaitlistSection() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [focused, setFocused] = useState(false);
 
   return (
@@ -23,9 +25,26 @@ export default function WaitlistSection() {
           </p>
           <form
             className="flex flex-col sm:flex-row gap-2.5 max-w-[480px] mx-auto mt-7"
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              if (email) setSubmitted(true);
+              if (!email) return;
+              setLoading(true);
+              setError("");
+              try {
+                const res = await fetch("/api/waitlist", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ email }),
+                });
+                if (!res.ok) throw new Error("Failed");
+                setSubmitted(true);
+                setEmail("");
+                setTimeout(() => setSubmitted(false), 3000);
+              } catch {
+                setError("Something went wrong. Please try again.");
+              } finally {
+                setLoading(false);
+              }
             }}
           >
             <input
@@ -43,14 +62,13 @@ export default function WaitlistSection() {
             />
             <button
               type="submit"
-              className="font-body text-[15px] font-semibold rounded-[10px] px-7 py-3.5 bg-red text-white shadow-[0_4px_20px_rgba(192,57,43,0.28)] transition hover:bg-red-dark hover:-translate-y-0.5 whitespace-nowrap"
+              disabled={loading || submitted}
+              className="font-body text-[15px] font-semibold rounded-[10px] px-7 py-3.5 bg-red text-white shadow-[0_4px_20px_rgba(192,57,43,0.28)] transition hover:bg-red-dark hover:-translate-y-0.5 whitespace-nowrap disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {submitted ? "You're on the list ✓" : "Join Waitlist"}
+              {submitted ? "You're on the list ✓" : loading ? "Joining..." : "Join Waitlist"}
             </button>
           </form>
-          <div className="text-[13px] text-muted-soft mt-3">
-            🔒 <strong className="text-nutrition">No spam. No sharing. 100% private.</strong>
-          </div>
+          {error && <p className="text-red text-[13px] mt-2">{error}</p>}
         </FadeUp>
       </div>
     </section>

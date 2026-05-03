@@ -1,19 +1,47 @@
 "use client";
 
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
+import Image from "next/image";
+import { useStoreModal } from "./StoreModal";
 
 const NAV_LINKS = [
   { label: "What's inside", href: "#how-it-works" },
   { label: "Use case", href: "#features" },
-  { label: "Metrics", href: "#programs" },
-  { label: "Smart Assist", href: "#coach" },
+  { label: "Smart Assist", href: "#ai-suggestions" },
 ];
 
+function scrollToSection(href: string) {
+  const id = href.replace("#", "");
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState
-  (false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#how-it-works");
+  const { openStoreModal } = useStoreModal();
+
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map((l) => l.href.replace("#", ""));
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveHref(`#${id}`);
+        },
+        { threshold: 0.3 }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
   const { scrollY } = useScroll();
   
   // Desktop animations (Large screens)
@@ -37,17 +65,9 @@ export default function Navbar() {
         <motion.a
           href="#"
           style={{ x: leftSpreadX, WebkitBackdropFilter: "blur(20px)" }}
-          className="absolute right-1/2 flex items-center gap-2.5 bg-white/95 backdrop-blur-xl border border-white/60 rounded-xl pl-2 pr-5 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.18)] transition-shadow"
+          className="absolute right-1/2 overflow-hidden bg-white/95 backdrop-blur-xl border border-white/60 rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_32px_rgba(0,0,0,0.18)] transition-shadow"
         >
-          <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2v20M2 12h20" className="opacity-20" />
-              <path d="M3 12c3 0 4-5 9-5s6 5 9 5" />
-            </svg>
-          </div>
-          <span className="font-display text-[18px] font-black text-ink tracking-tight">
-            Habitline
-          </span>
+          <Image src="/images/logo-light.jpg" alt="BigBoy" width={140} height={64} className="object-cover" style={{ display: "block" }} />
         </motion.a>
 
         {/* Center links pill */}
@@ -55,12 +75,13 @@ export default function Navbar() {
           className="flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white/60 rounded-xl px-2 py-2 shadow-[0_4px_24px_rgba(0,0,0,0.12)] list-none"
           style={{ WebkitBackdropFilter: "blur(20px)" }}
         >
-          {NAV_LINKS.map((l, idx) => (
+          {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
+                onClick={(e) => { e.preventDefault(); setActiveHref(l.href); scrollToSection(l.href); }}
                 className={`inline-block text-[15px] font-medium text-ink no-underline px-8 py-3 rounded-[16px] transition-colors duration-200 ${
-                  idx === 0 ? "bg-[#E5E5E7]" : "hover:bg-black/[0.04]"
+                  activeHref === l.href ? "bg-[#E5E5E7]" : "hover:bg-black/[0.04]"
                 }`}
               >
                 {l.label}
@@ -74,12 +95,12 @@ export default function Navbar() {
           style={{ x: rightSpreadX, WebkitBackdropFilter: "blur(20px)" }}
           className="absolute left-1/2 flex items-center gap-1.5 bg-white/95 backdrop-blur-xl border border-white/60 rounded-xl p-1.5 py-3 shadow-[0_4px_24px_rgba(0,0,0,0.12)]"
         >
-          <a href="#" className="w-10 h-10 rounded-[12px] bg-[#1A1A1A] flex items-center justify-center hover:bg-black transition text-white">
+          <button onClick={openStoreModal} className="w-10 h-10 rounded-[12px] bg-[#1A1A1A] flex items-center justify-center hover:bg-black transition text-white">
             <FaApple size={18} />
-          </a>
-          <a href="#" className="w-10 h-10 rounded-[12px] bg-[#1A1A1A] flex items-center justify-center hover:bg-black transition text-white">
+          </button>
+          <button onClick={openStoreModal} className="w-10 h-10 rounded-[12px] bg-[#1A1A1A] flex items-center justify-center hover:bg-black transition text-white">
             <FaGooglePlay size={16} />
-          </a>
+          </button>
         </motion.div>
       </motion.nav>
 
@@ -95,27 +116,19 @@ export default function Navbar() {
         <div className="bg-white/90 backdrop-blur-2xl border border-white/60 rounded-xl px-5 py-3.5 shadow-[0_20px_50px_rgba(0,0,0,0.12)] flex items-center justify-between w-full max-w-[600px]">
           
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2v20M2 12h20" className="opacity-20" />
-                <path d="M3 12c3 0 4-5 9-5s6 5 9 5" />
-              </svg>
-            </div>
-            <span className="font-display text-[20px] font-black text-ink tracking-tight">
-              Habitline
-            </span>
+          <a href="#" className="overflow-hidden rounded-xl">
+            <Image src="/images/logo-light.jpg" alt="BigBoy" width={130} height={46} className="object-cover" />
           </a>
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5">
-              <a href="#" className="w-9 h-9 rounded-[10px] bg-[#F5F5F7] flex items-center justify-center hover:bg-black hover:text-white transition-all text-ink/80">
+              <button onClick={openStoreModal} className="w-9 h-9 rounded-[10px] bg-[#F5F5F7] flex items-center justify-center hover:bg-black hover:text-white transition-all text-ink/80">
                 <FaApple size={16} />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-[10px] bg-[#F5F5F7] flex items-center justify-center hover:bg-black hover:text-white transition-all text-ink/80">
+              </button>
+              <button onClick={openStoreModal} className="w-9 h-9 rounded-[10px] bg-[#F5F5F7] flex items-center justify-center hover:bg-black hover:text-white transition-all text-ink/80">
                 <FaGooglePlay size={14} />
-              </a>
+              </button>
             </div>
 
             <button 
@@ -156,8 +169,8 @@ export default function Navbar() {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: i * 0.05 }}
                     href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="text-[22px] font-black text-ink hover:text-orange-500 transition-colors"
+                    onClick={(e) => { e.preventDefault(); setActiveHref(link.href); setIsOpen(false); scrollToSection(link.href); }}
+                    className={`text-[22px] font-black transition-colors ${activeHref === link.href ? "text-orange-500" : "text-ink hover:text-orange-500"}`}
                   >
                     {link.label}
                   </motion.a>

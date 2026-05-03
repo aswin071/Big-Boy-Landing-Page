@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"\\(Get-Content components\\\\Achievements.tsx\\) -replace 'Habitline','BigBoy' | Set-Content components\\\\Achievements.tsx; \\(Get-Content components\\\\AISuggestions.tsx\\) -replace 'Habitline','BigBoy' | Set-Content components\\\\AISuggestions.tsx; \\(Get-Content components\\\\FAQSection.tsx\\) -replace 'Habitline','BigBoy' | Set-Content components\\\\FAQSection.tsx; \\(Get-Content components\\\\UserStories.tsx\\) -replace 'Habitline','BigBoy' | Set-Content components\\\\UserStories.tsx\")",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "Bash(Remove-Item -Recurse -Force .next -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)"
+    ]
+  }
+}

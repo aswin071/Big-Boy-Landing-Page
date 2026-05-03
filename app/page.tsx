@@ -6,7 +6,6 @@ import Achievements from "@/components/Achievements";
 import AISuggestions from "@/components/AISuggestions";
 import UserStories from "@/components/UserStories";
 import FeatureBento from "@/components/FeatureBento";
-import ProgramsSection from "@/components/ProgramsSection";
 import Testimonials from "@/components/Testimonials";
 import StatsCounter from "@/components/StatsCounter";
 import AICoachSection from "@/components/AICoachSection";
@@ -22,14 +21,13 @@ export default function HomePage() {
       <HeroSection />
       <MarqueeStrip />
       <VisualRoutine />
+      <FeatureBento />
       <Achievements />
       <AISuggestions />
       <UserStories />
-      <FAQSection />  
+      <FAQSection />
 
-      
-      {/* <FeatureBento /> */}
-      {/* <ProgramsSection /> */}
+
       {/* <Testimonials /> */}
       {/* <StatsCounter /> */}
       {/* <AICoachSection /> */}

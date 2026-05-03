@@ -60,7 +60,7 @@ const FEATURES = [
 
 export default function AISuggestions() {
   return (
-    <section className="py-24 bg-[#F5F5F7]/50">
+    <section id="ai-suggestions" className="py-24 bg-[#F5F5F7]/50">
       <div className="max-w-container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
           {/* Left Content */}
@@ -73,7 +73,7 @@ export default function AISuggestions() {
                 AI suggestions that adjust to your day
               </h2>
               <p className="text-[18px] text-muted leading-relaxed mb-10 max-w-[500px]">
-                Habitline learns your patterns and offers small, useful suggestions that help you stay consistent without guessing what to do next.
+                BigBoy learns your patterns and offers small, useful suggestions that help you stay consistent without guessing what to do next.
               </p>
               <button className="bg-black text-white px-10 py-4 rounded-full font-bold text-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:bg-black/80 transition-all">
                 See how suggestions work

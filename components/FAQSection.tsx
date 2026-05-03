@@ -11,18 +11,18 @@ const FAQS = [
   },
   {
     q: "Do reminders work across all devices?",
-    a: "Yes, Habitline syncs seamlessly across iPhone, iPad, and Apple Watch so you never miss a beat.",
+    a: "Yes, BigBoy syncs seamlessly across iPhone, iPad, and Apple Watch so you never miss a beat.",
   },
   {
     q: "What happens if I miss a day?",
-    a: "Habitline uses gentle recovery suggestions to help you get back on track without feeling guilty.",
+    a: "BigBoy uses gentle recovery suggestions to help you get back on track without feeling guilty.",
   },
   {
     q: "Can I create routines for different times of day?",
     a: "Absolutely. You can set up specific stacks for Morning, Afternoon, and Evening routines.",
   },
   {
-    q: "Is Habitline free to use?",
+    q: "Is BigBoy free to use?",
     a: "We offer a generous free tier with all the essential features, and a Pro version for advanced AI insights.",
   },
 ];
@@ -52,9 +52,16 @@ export default function FAQSection() {
                     <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
                   </svg>
                 </div>
-                <h3 className="text-[22px] font-black text-ink mb-6">Can&apos;t find your answer?</h3>
-                <button className="bg-[#1A1A1A] text-white px-8 py-3.5 rounded-full font-bold text-[14px] shadow-lg hover:bg-black transition-all">
-                  Contact us
+                <h3 className="text-[22px] font-black text-ink mb-2">Want to get early access?</h3>
+                <p className="text-[14px] text-muted mb-6 leading-relaxed">Join the waitlist and be first when we launch.</p>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById("waitlist");
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="bg-[#1A1A1A] text-white px-8 py-3.5 rounded-full font-bold text-[14px] shadow-lg hover:bg-black transition-all"
+                >
+                  Join Waitlist
                 </button>
               </div>
             </FadeUp>
