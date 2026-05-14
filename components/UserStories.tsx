@@ -7,7 +7,7 @@ const TESTIMONIALS = [
   {
     text: "Saw measurable improvements in 3 weeks. The tracking actually works.",
     name: "Rahul",
-    role: "29",
+    role: "39",
   },
   {
     text: "Finally a framework that treats this seriously. No BS, just science.",
@@ -16,7 +16,7 @@ const TESTIMONIALS = [
   },
   {
     text: "The data insights are insane. You see exactly what makes the difference.",
-    name: "Hannah Lee",
+    name: "James",
     role: "26",
   },
   {

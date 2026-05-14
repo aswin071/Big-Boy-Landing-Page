@@ -103,10 +103,10 @@ export default function HeroSection() {
         </h1>
 
         <p
-          className="text-white/80 max-w-[500px] mx-auto mt-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
-          style={{ fontSize: "clamp(15px, 1.15vw, 17px)", lineHeight: 1.65 }}
+          className="text-white/80 max-w-[600px] mx-auto mt-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]"
+          style={{ fontSize: "clamp(16px, 1.2vw, 18px)", lineHeight: 1.6 }}
         >
-          Big Boy app provides structured programs from world-renowned sexual wellness coaches.
+          Big boy app provides Structured programs from world-renowned sexual wellness coaches to improve your sexual performance.
           <br />
           Science-backed routines. Start seeing changes in 9 days.
         </p>

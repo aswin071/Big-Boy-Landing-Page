@@ -2,14 +2,10 @@ import FadeUp from "./FadeUp";
 import IPhoneMockup from "./IPhoneMockup";
 
 const BENEFITS = [
-  { text: "World's best sexual wellness coach in your pocket", icon: "M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z", highlight: true },
-  { text: "From anxious to confident in 14 days", icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8z", highlight: true },
-  { text: "Each program personalised for you", icon: "M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z", highlight: false },
-  { text: "Private Community Access", icon: "M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75", highlight: false },
-  { text: "1 year free access at launch", icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", highlight: true },
-  { text: "Certified sexual wellness coaches", icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z", highlight: false },
-  { text: "Science backed programs", icon: "M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18", highlight: false },
-  { text: "Proven techniques to increase your sexual performance", icon: "M22 12h-4l-3 9L9 3l-3 9H2", highlight: false },
+  { text: "Worlds best sexual wellness coach in your pocket", icon: "M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 12c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z", highlight: true },
+  { text: "Start seeing results in 14 days.", icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8z", highlight: true },
+  { text: "1 year free Access at Launch", icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z", highlight: true },
+  { text: "Scienced backed programs", icon: "M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18", highlight: true },
 ];
 
 export default function FeatureBento() {
@@ -68,14 +64,12 @@ export default function FeatureBento() {
           </div>
 
           <div className="order-2 lg:order-2">
-            <div className="eyebrow mb-3">Why BigBoy</div>
+            <div className="eyebrow mb-3">Benefit-Focused</div>
             <h2 className="display-h2" style={{ fontSize: "clamp(36px, 4vw, 54px)" }}>
-              Everything you need.
-              <br />
-              Nothing you don&apos;t.
+              Whats inside BIG BOY app
             </h2>
             <p className="text-[17px] text-muted leading-[1.7] mt-3.5 max-w-[480px]" style={{ textWrap: "pretty" as const }}>
-              Built with the world&apos;s leading sexual wellness experts — every feature is designed to get you real results, fast.
+              Get exclusive access to the world&apos;s best wellness routines and personalized programs.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
               {BENEFITS.map((benefit, i) => (
