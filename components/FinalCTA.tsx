@@ -9,7 +9,7 @@ export default function FinalCTA() {
   const { openStoreModal } = useStoreModal();
 
   return (
-    <section id="waitlist" className="relative py-32 overflow-hidden bg-white">
+    <section className="relative py-32 overflow-hidden bg-white">
       {/* Background Sky & Clouds */}
       <div className="absolute inset-0 z-0">
         <Image 
@@ -35,7 +35,13 @@ export default function FinalCTA() {
               </p>
               
               <div className="flex flex-col gap-4">
-                <button onClick={openStoreModal} className="flex items-center justify-center gap-3 bg-black text-white px-10 py-4 rounded-full font-bold text-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:bg-black/80 transition-all w-full sm:w-fit">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById("waitlist");
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="flex items-center justify-center gap-3 bg-black text-white px-10 py-4 rounded-full font-bold text-[15px] shadow-[0_20px_40px_rgba(0,0,0,0.2)] hover:bg-black/80 transition-all w-full sm:w-fit"
+                >
                   Join Waitlist
                 </button>
               </div>

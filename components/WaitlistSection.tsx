@@ -21,7 +21,7 @@ export default function WaitlistSection() {
             when we launch.
           </h2>
           <p className="text-[17px] text-muted leading-[1.7] mt-3.5 mx-auto max-w-[500px]">
-            Join the waitlist. Get early access + 1 year free Premium worth $220.
+            Join the waitlist. Get 1 year unlimited access worth $220.
           </p>
           <form
             className="flex flex-col sm:flex-row gap-2.5 max-w-[480px] mx-auto mt-7"

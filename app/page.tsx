@@ -9,7 +9,7 @@ import FeatureBento from "@/components/FeatureBento";
 // import Testimonials from "@/components/Testimonials";
 // import StatsCounter from "@/components/StatsCounter";
 // import AICoachSection from "@/components/AICoachSection";
-// import WaitlistSection from "@/components/WaitlistSection";
+import WaitlistSection from "@/components/WaitlistSection";
 import FAQSection from "@/components/FAQSection";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -32,7 +32,7 @@ export default function HomePage() {
       {/* <Testimonials /> */}
       {/* <StatsCounter /> */}
       {/* <AICoachSection /> */}
-      {/* <WaitlistSection /> */}
+      <WaitlistSection />
       <Footer />
     </main>
   );
